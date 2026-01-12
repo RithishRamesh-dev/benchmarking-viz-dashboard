@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}About - MLCommons Dashboards{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>About This Project</h1>
+        <p class="subtitle">Understanding MLCommons Benchmarks Through Interactive Visualizations</p>
+    </div>
+</div>
+
+<div class="container">
+    <section class="about-content">
+        <h2>What is MLCommons?</h2>
+        <p><strong>MLCommons</strong> (formerly MLPerf) is an open engineering consortium that develops industry-standard benchmarks for measuring machine learning performance. These benchmarks help organizations make informed decisions about ML hardware and software.</p>
+
+        <h2>About These Dashboards</h2>
+        <p>This website hosts interactive Tableau Public dashboards that visualize MLCommons benchmark results:</p>
+        
+        <div class="dashboard-list">
+            <div class="dashboard-item">
+                <h3>🚀 Inference Datacenter Dashboard</h3>
+                <p>Displays performance metrics for ML inference workloads running in datacenter environments. Key metrics include throughput, latency, and efficiency across different hardware platforms.</p>
+            </div>
+            
+            <div class="dashboard-item">
+                <h3>🎯 Training Benchmark Dashboard</h3>
+                <p>Shows training performance data for various ML models and hardware configurations. Includes training time, scalability metrics, and comparative analysis.</p>
+            </div>
+        </div>
+
+        <h2>Technology Stack</h2>
+        <ul class="tech-stack">
+            <li><strong>Backend:</strong> Python with Flask framework</li>
+            <li><strong>Server:</strong> Gunicorn WSGI server with Nginx reverse proxy</li>
+            <li><strong>Hosting:</strong> DigitalOcean Ubuntu 22.04 Droplet</li>
+            <li><strong>Dashboards:</strong> Tableau Public embedded visualizations</li>
+            <li><strong>Styling:</strong> Custom CSS with responsive design</li>
+        </ul>
+
+        <h2>Data Source</h2>
+        <p>All benchmark data is sourced directly from <a href="https://mlcommons.org" target="_blank">MLCommons.org</a>. The dashboards are embedded from Tableau Public and reflect the most current published results.</p>
+
+        <h2>Open Source</h2>
+        <p>This project demonstrates best practices for:</p>
+        <ul>
+            <li>Deploying Python web applications to production</li>
+            <li>Embedding Tableau Public dashboards</li>
+            <li>Creating responsive, user-friendly interfaces</li>
+            <li>Setting up secure web server infrastructure</li>
+        </ul>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Explore?</h2>
+        <p>Dive into the interactive dashboards to discover insights from ML benchmark data.</p>
+        <div class="cta-buttons">
+            <a href="/inference" class="btn btn-primary">Inference Dashboard</a>
+            <a href="/training" class="btn btn-secondary">Training Dashboard</a>
+        </div>
+    </section>
+</div>
+{% endblock %}

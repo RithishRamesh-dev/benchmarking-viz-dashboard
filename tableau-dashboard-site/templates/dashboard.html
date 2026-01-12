@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} - MLCommons Dashboards{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <p class="dashboard-description">{{ description }}</p>
+    </div>
+</div>
+
+<div class="dashboard-container">
+    <div class="container-fluid">
+        <!-- Tableau Dashboard Embed -->
+        <div class="tableau-wrapper">
+            <div class="loading-message">
+                <p>Loading dashboard... This may take a few moments.</p>
+                <div class="spinner"></div>
+            </div>
+            
+            <!-- Tableau Public Embed using iframe -->
+            <iframe 
+                id="tableau-viz"
+                class="tableau-viz"
+                src="{{ embed_url }}?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=yes&:display_overlay=yes&:display_count=yes&:language=en-US&:loadOrderID=0"
+                width="100%"
+                height="850"
+                frameborder="0"
+                allowfullscreen
+                onload="hideLoadingMessage()">
+            </iframe>
+        </div>
+
+        <!-- Dashboard Instructions -->
+        <div class="dashboard-instructions">
+            <h3>💡 How to Use This Dashboard</h3>
+            <ul>
+                <li><strong>Interact:</strong> Click on data points to filter and drill down</li>
+                <li><strong>Filter:</strong> Use the filter controls to focus on specific metrics</li>
+                <li><strong>Export:</strong> Use the toolbar to download data or images</li>
+                <li><strong>Zoom:</strong> Click and drag to zoom into specific areas</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Hide loading message once iframe loads
+    function hideLoadingMessage() {
+        const loadingMsg = document.querySelector('.loading-message');
+        if (loadingMsg) {
+            loadingMsg.style.display = 'none';
+        }
+    }
+
+    // Add timeout fallback in case onload doesn't fire
+    setTimeout(function() {
+        hideLoadingMessage();
+    }, 5000);
+</script>
+{% endblock %}
