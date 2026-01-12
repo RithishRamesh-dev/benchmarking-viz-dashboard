@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Home - MLCommons Tableau Dashboards{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="container">
+        <h1>MLCommons Performance Dashboards</h1>
+        <p class="hero-subtitle">Interactive visualizations of machine learning inference and training benchmarks</p>
+    </div>
+</div>
+
+<div class="container">
+    <section class="dashboard-grid">
+        <!-- Inference Dashboard Card -->
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h2>🚀 Inference Datacenter</h2>
+            </div>
+            <div class="card-body">
+                <p>{{ dashboards.inference.description }}</p>
+                <ul class="feature-list">
+                    <li>Performance metrics across different hardware</li>
+                    <li>Latency and throughput analysis</li>
+                    <li>Comparative benchmarks</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <a href="/inference" class="btn btn-primary">View Dashboard →</a>
+            </div>
+        </div>
+
+        <!-- Training Dashboard Card -->
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h2>🎯 Training Benchmarks</h2>
+            </div>
+            <div class="card-body">
+                <p>{{ dashboards.training.description }}</p>
+                <ul class="feature-list">
+                    <li>Training time comparisons</li>
+                    <li>Scalability metrics</li>
+                    <li>Hardware efficiency analysis</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <a href="/training" class="btn btn-primary">View Dashboard →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="info-section">
+        <h2>About These Dashboards</h2>
+        <p>These interactive dashboards present data from <strong>MLCommons</strong>, the leading organization for ML benchmarking. The dashboards are powered by <strong>Tableau Public</strong> and update automatically with the latest benchmark results.</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>📈 Real-Time Data</h3>
+                <p>Dashboards pull the latest benchmark data directly from MLCommons.</p>
+            </div>
+            <div class="feature">
+                <h3>🔍 Interactive Exploration</h3>
+                <p>Filter, zoom, and drill down into specific metrics and hardware configurations.</p>
+            </div>
+            <div class="feature">
+                <h3>💡 Actionable Insights</h3>
+                <p>Compare performance across different systems and workloads.</p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
